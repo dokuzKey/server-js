@@ -1,0 +1,18 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore logs and debugging files
+logs/
+*.log
+npm-debug.log*
+
+# Ignore environment-specific files
+.env
+.env.local
+.env.*.local
+
+# Ignore editor and IDE files
+.vscode/
+
+# Ignore package lock file
+package-lock.json
