@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "description": "Server-side application for the 9Key Password Manager",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dokuzKey/server.git"
+  },
+  "keywords": [
+    "password"
+  ],
+  "author": "9Key Team",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/dokuzKey/server/issues"
+  },
+  "homepage": "https://sifre.org.tr",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "mongoose": "^8.6.1"
+  }
+}
