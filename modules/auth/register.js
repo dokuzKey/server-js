@@ -7,7 +7,6 @@ const register = async (req, res) => {
     if (!username || !email || !password) {
         return res.json({ status: 0, message: 'Please fill all fields' }).status(400);
     }
-
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
         const token = await bcrypt.hash(hashedPassword, 10);
