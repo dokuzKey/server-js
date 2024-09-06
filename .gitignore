@@ -16,3 +16,6 @@ npm-debug.log*
 
 # Ignore package lock file
 package-lock.json
+
+# Ignore macOS metadata and resources files
+.DS_Store
