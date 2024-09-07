@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
     return res.send('Why don\'t you try calling the API endpoints?');
 });
 
-app.get('/api/fetch/:item/:userID', (req, res) => {
+app.get('/api/fetch/:item', (req, res) => {
     if (req.params.item === 'passwords') {
         passwordsGet(req, res);
     } else if (req.params.item === 'notes') {
@@ -34,7 +34,7 @@ app.get('/api/fetch/:item/:userID', (req, res) => {
     }
 });
 
-app.post('/api/create/:item/:userID', (req, res) => {
+app.post('/api/create/:item', (req, res) => {
     if (req.params.item === 'passwords') {
         passwordsCreate(req, res);
     } else if (req.params.item === 'notes') {

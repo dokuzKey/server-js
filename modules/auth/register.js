@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const User = require('../../models/User.js');
 const Password = require('../../models/Password.js');
+const Note = require('../../models/Note.js');
 require('dotenv').config();
 
 const register = async (req, res) => {
@@ -17,6 +18,10 @@ const register = async (req, res) => {
             username,
             password
         });
+        const newNote = new Note({
+            title: 'Welcome to your notes',
+            body: 'This is an example note.',
+        });
         const newUser = new User({
             username,
             email,
@@ -24,9 +29,11 @@ const register = async (req, res) => {
             token
         });
         await newPassword.save();
+        await newNote.save();
         newUser.passwords.push(newPassword);
+        newUser.notes.push(newNote);
         await newUser.save();
-        return res.status(200).json({status: 1, "token" : token });  
+        return res.status(200).json({ status: 1, "token" : token });  
     } catch (error) {
         console.log(error);
         return res.json({ status: 0, message: 'Registration failed', code: error}).status(500);
