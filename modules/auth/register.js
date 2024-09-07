@@ -1,5 +1,4 @@
 const bcrypt = require('bcrypt');
-const mongoose = require('mongoose');
 const User = require('../../models/User.js');
 const Password = require('../../models/Password.js');
 const Note = require('../../models/Note.js');
