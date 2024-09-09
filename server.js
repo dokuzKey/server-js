@@ -20,8 +20,16 @@ connectDB();
 const register = require('./modules/auth/register.js');
 const login = require('./modules/auth/login.js');
 
-app.get('/', (req, res) => {
-    return res.send('Why don\'t you try calling the API endpoints?');
+app.all('/', (req, res) => {
+    return res.json({ status: 0, message: 'Why don\'t you try calling the API endpoints?' });
+});
+
+app.all('/*', (req, res) => {
+    return res.json({ status: 0, message: 'Please call a valid endpoint!' });
+});
+
+app.all('/api/*', (req, res) => {
+    return res.json({ status: 0, message: 'Call an endpoint first!' });
 });
 
 app.get('/api/fetch/:item', (req, res) => {
@@ -30,7 +38,7 @@ app.get('/api/fetch/:item', (req, res) => {
     } else if (req.params.item === 'notes') {
         notesGet(req, res);
     } else {
-        return res.json({ status: 0, data: "Please call a valid API endpoint!" });
+        return res.json({ status: 0, message: "Please call a valid API endpoint!" });
     }
 });
 
@@ -40,7 +48,7 @@ app.post('/api/create/:item', (req, res) => {
     } else if (req.params.item === 'notes') {
         notesCreate(req, res);
     } else {
-        return res.json({ status: 0, data: "Please call a valid API endpoint!" });
+        return res.json({ status: 0, message: "Please call a valid API endpoint!" });
     }
 });
 
