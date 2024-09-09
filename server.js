@@ -24,14 +24,6 @@ app.all('/', (req, res) => {
     return res.json({ status: 0, message: 'Why don\'t you try calling the API endpoints?' });
 });
 
-app.all('/*', (req, res) => {
-    return res.json({ status: 0, message: 'Please call a valid endpoint!' });
-});
-
-app.all('/api/*', (req, res) => {
-    return res.json({ status: 0, message: 'Call an endpoint first!' });
-});
-
 app.get('/api/fetch/:item', (req, res) => {
     if (req.params.item === 'passwords') {
         passwordsGet(req, res);
