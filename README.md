@@ -1,3 +1,5 @@
+# The 9Key Server written in JavaScript has been archived, the project is not completed, and it is not recommended for use. Please use the [new, TypeScript version](https://github.com/dokuzKey/server) instead.
+
 # 🖥️ 9Key Server
 
 Server-side application for the 9Key Password Manager
